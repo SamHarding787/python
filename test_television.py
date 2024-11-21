@@ -5,7 +5,11 @@ def test_init():
 
 def test_power():
     tv = Television()
-
+    tv.power()
+    if tv._status:
+        print("YES")
+    else:
+        print("NO")
 def test_channel_up():
     tv = Television()
 
