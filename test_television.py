@@ -100,3 +100,22 @@ def test_volume_down():
 
 def test_mute():
     tv = Television()
+    tv.power()
+    tv.volume_up()
+    if tv._volume == 1:
+        print("YES")
+    else:
+        print("NO")
+
+    tv.mute()
+    if tv._muted:
+        print("YES")
+    else:
+        print("NO")
+
+    tv.mute()
+    if not tv._muted:
+        print("YES")
+    else:
+        print("NO")
+
