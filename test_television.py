@@ -38,6 +38,12 @@ def test_power():
 
 def test_channel_up():
     tv = Television()
+
+def test_channel_down():
+    tv = Television()
+
+def test_volume_up():
+    tv = Television()
     tv.power()
     tv.volume_up()
     if tv._volume == 1:
@@ -52,14 +58,19 @@ def test_channel_up():
     else:
         print("NO")
 
-def test_channel_down():
-    tv = Television()
-
-def test_volume_up():
-    tv = Television()
-
 def test_volume_down():
     tv = Television()
+    tv.power()
+    if tv._volume == 0:
+        print("YES")
+    else:
+        print("NO")
+
+    tv.volume_down()
+    if tv._volume == 0:
+        print("YES")
+    else:
+        print("NO")
 
 def test_mute():
     tv = Television()
