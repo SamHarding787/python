@@ -24,4 +24,3 @@ def test_volume_down():
 
 def test_mute():
     tv = Television()
-TEST
