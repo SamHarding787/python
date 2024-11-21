@@ -29,8 +29,28 @@ def test_power():
         print("YES")
     else:
         print("NO")
+
+    tv.power()
+    if not tv._status:
+        print("YES")
+    else:
+        print("NO")
+
 def test_channel_up():
     tv = Television()
+    tv.power()
+    tv.volume_up()
+    if tv._volume == 1:
+        print("YES")
+    else:
+        print("NO")
+
+    tv._volume = Television.MAX_VOLUME
+    tv.volume_up()
+    if tv._volume == Television.MAX_VOLUME:
+        print("YES")
+    else:
+        print("NO")
 
 def test_channel_down():
     tv = Television()
