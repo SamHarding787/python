@@ -2,6 +2,25 @@ from television import Television
 
 def test_init():
     tv = Television()
+    if not tv._status:
+        print("YES")
+    else:
+        print("NO")
+
+    if not tv._muted:
+        print("YES")
+    else:
+        print("NO")
+
+    if not tv._volume == Television.MIN_VOLUME:
+        print("YES")
+    else:
+        print("NO")
+
+    if not tv._channel == Television.MIN_CHANNEL:
+        print("YES")
+    else:
+        print("NO")
 
 def test_power():
     tv = Television()
