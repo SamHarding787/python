@@ -19,3 +19,23 @@ class Test_Television(unittest.TestCase):
         tv.power()
         self.assertFalse(tv._status, "TV should be off after calling power again.")
 
+    def test_channel_up(self):
+        """Testing channel_up"""
+        tv = Television()
+        tv.power()  # Turn on the TV
+        tv.channel_up()
+        self.assertEqual(tv._channel, 1, "Channel should increment by 1.")
+        tv._channel = Television.MAX_CHANNEL
+        tv.channel_up()
+        self.assertEqual(tv._channel, Television.MIN_CHANNEL, "Channel should wrap to minimum.")
+
+    def test_channel_down(self):
+        """Testing channel_down"""
+        tv = Television()
+        tv.power()  # Turn on the TV
+        tv.channel_down()
+        self.assertEqual(tv._channel, Television.MAX_CHANNEL, "Channel should wrap to maximum.")
+        tv._channel = 1
+        tv.channel_down()
+        self.assertEqual(tv._channel, 0, "Channel should decrement by 1.")
+
