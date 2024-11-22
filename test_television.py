@@ -39,3 +39,22 @@ class Test_Television(unittest.TestCase):
         tv.channel_down()
         self.assertEqual(tv._channel, 0, "Channel should decrement by 1.")
 
+    def test_volume_up(self):
+        """Testing volume_up"""
+        tv = Television()
+        tv.power()  # Turn on the TV
+        tv.volume_up()
+        self.assertEqual(tv._volume, 1, "Volume should increment by 1.")
+        tv._volume = Television.MAX_VOLUME
+        tv.volume_up()
+        self.assertEqual(tv._volume, Television.MAX_VOLUME, "Volume should stay at maximum.")
+
+    def test_volume_down(self):
+        """Testing volume_down"""
+        tv = Television()
+        tv.power()  # Turn on the TV
+        tv.volume_down()
+        self.assertEqual(tv._volume, Television.MIN_VOLUME, "Volume should stay at minimum.")
+        tv._volume = 1
+        tv.volume_down()
+        self.assertEqual(tv._volume, 0, "Volume should decrement by 1.")
