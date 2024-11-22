@@ -1,7 +1,7 @@
 from television import Television
 import unittest
 
-class Test_Television(unittest.TestCase):
+class TestTelevision(unittest.TestCase):
 
     def test_init(self):
         """Testing the init"""
@@ -58,3 +58,23 @@ class Test_Television(unittest.TestCase):
         tv._volume = 1
         tv.volume_down()
         self.assertEqual(tv._volume, 0, "Volume should decrement by 1.")
+
+    def test_mute(self):
+        """Testing mute"""
+        tv = Television()
+        tv.power()  # Turn on the TV
+        tv.volume_up()
+        self.assertEqual(tv._volume, 1, "Volume should be 1 before muting.")
+        tv.mute()
+        self.assertTrue(tv._muted, "TV should be muted.")
+        tv.mute()
+        self.assertFalse(tv._muted, "TV should be unmuted.")
+
+    def test_str_method(self):
+        """Test the __str__ method."""
+        tv = Television()
+        self.assertEqual(str(tv), "Power = False, Channel = 0, Volume = 0", "String representation should match initial state.")
+        tv.power()
+        tv.volume_up()
+        tv.channel_up()
+        self.assertEqual(str(tv), "Power = True, Channel = 1, Volume = 1", "String representation should match current state.")
